@@ -14,8 +14,13 @@ La faja vuelve a avanzar para procesar el siguiente grano.
 Integrantes:
 
 Torres Juarez Eduardo Fabrizio
+
 Alvarado Vilela Cesar Rodrigo
+
 Juarez Chira Frank Reynaldo
+
 Anton Zeta Edwin Fernando
+
 Zapata Viery Sharlles
+
 Izquierdo Montenegro Eduardo
