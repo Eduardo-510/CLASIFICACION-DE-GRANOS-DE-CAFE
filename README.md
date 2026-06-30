@@ -11,16 +11,16 @@ El algoritmo calcula variables de forma y color.
 El sistema imprime o muestra la calidad estimada del grano.
 La faja vuelve a avanzar para procesar el siguiente grano.
 
-Integrantes:
+## Integrantes:
 
-Torres Juarez Eduardo Fabrizio
+-Torres Juarez Eduardo Fabrizio
 
-Alvarado Vilela Cesar Rodrigo
+-Alvarado Vilela Cesar Rodrigo
 
-Juarez Chira Frank Reynaldo
+-Juarez Chira Frank Reynaldo
 
-Anton Zeta Edwin Fernando
+-Anton Zeta Edwin Fernando
 
-Zapata Viery Sharlles
+-Zapata Viery Sharlles
 
-Izquierdo Montenegro Eduardo
+-Izquierdo Montenegro Eduardo
