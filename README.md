@@ -80,21 +80,8 @@ El funcionamiento general del proyecto es el siguiente:
 
 ---
 
-## 7. Clasificaciones consideradas
 
-El sistema considera las siguientes categorías:
-
-- **BUENO:** grano con tamaño, forma y color aceptables.
-- **PARTIDO:** grano con forma irregular, baja circularidad, baja solidez o fragmentación.
-- **QUEMADO:** grano con color demasiado oscuro.
-- **MANCHADO:** grano con alta variación de color en su superficie.
-- **INMADURO:** grano con tonalidad verdosa o verde clara.
-- **OBJETO NO VÁLIDO:** objeto demasiado pequeño, demasiado grande o que no corresponde a un grano de café.
-- **GRANO NO DETECTADO:** no se identifica ningún contorno válido en la imagen.
-
----
-
-## 8. Tecnologías utilizadas
+## 7. Tecnologías utilizadas
 
 ### Hardware
 
@@ -118,7 +105,7 @@ El sistema considera las siguientes categorías:
 
 ---
 
-## 9. Versiones utilizadas
+## 8. Versiones utilizadas
 
 Las versiones pueden variar según el equipo donde se ejecute el proyecto. Las versiones utilizadas/recomendadas son:
 
@@ -131,139 +118,8 @@ Las versiones pueden variar según el equipo donde se ejecute el proyecto. Las v
 - Arduino IDE: 2.3.x.
 - Placa seleccionada en Arduino IDE: AI Thinker ESP32-CAM.
 
-Para verificar las versiones instaladas en Python se puede ejecutar:
 
-```bash
-python --version
-pip show opencv-python
-pip show numpy
-pip show requests
-pip show matplotlib
-```
-
----
-
-## 10. Instalación de dependencias
-
-Antes de ejecutar el programa principal en Python, se deben instalar las librerías necesarias:
-
-```bash
-pip install opencv-python numpy requests matplotlib
-```
-
-En caso se utilice el comando `py` en Windows:
-
-```bash
-py -m pip install opencv-python numpy requests matplotlib
-```
-
----
-
-## 11. Estructura recomendada del repositorio
-
-```text
-Proyecto_Cafe_ESP32/
-│
-├── README.md
-├── analisis_cafe.py
-├── verificar_resolucion.py
-├── arduino_faja_rele.ino
-├── esp32_camera_webserver/
-│   └── CameraWebServer.ino
-├── dataset/
-│   ├── bueno/
-│   ├── partido/
-│   ├── quemado/
-│   ├── manchado/
-│   └── inmaduro/
-├── imagenes_resultados/
-└── documentacion/
-```
-
-### Descripción de archivos principales
-
-- **analisis_cafe.py:** programa principal encargado de capturar y procesar la imagen del grano de café.
-- **verificar_resolucion.py:** script opcional para comprobar la resolución real capturada por la ESP32-CAM.
-- **arduino_faja_rele.ino:** código de Arduino para controlar el avance y parada de la faja transportadora mediante relé.
-- **CameraWebServer.ino:** código cargado en la ESP32-CAM para habilitar el servidor web de cámara.
-- **dataset/:** carpeta destinada a almacenar imágenes de prueba por clase, si se genera un dataset propio.
-- **imagenes_resultados/:** carpeta para guardar capturas del procesamiento y resultados obtenidos.
-- **documentacion/:** carpeta para incluir informes, diagramas o material de apoyo.
-
----
-
-## 12. Dataset
-
-Para este proyecto, el dataset puede estar conformado por imágenes capturadas directamente con la ESP32-CAM durante las pruebas del sistema. Las imágenes pueden organizarse manualmente según el tipo de grano:
-
-- Granos buenos.
-- Granos partidos.
-- Granos quemados.
-- Granos manchados.
-- Granos inmaduros.
-
-En caso de no utilizar un dataset público, se debe indicar que el dataset fue generado de forma propia a partir de imágenes capturadas durante la ejecución del proyecto.
-
-**Dataset utilizado:** Dataset propio generado durante las pruebas del prototipo.
-
-**Link público del dataset:** No aplica, debido a que el dataset no ha sido publicado en una plataforma externa.
-
----
-
-## 13. Ejecución del proyecto
-
-### Paso 1: Encender la ESP32-CAM
-
-Conectar la ESP32-CAM a la computadora o a una fuente de alimentación adecuada.
-
-### Paso 2: Verificar conexión WiFi
-
-Abrir el Monitor Serial del Arduino IDE a 115200 baudios y verificar que aparezca una dirección IP similar a:
-
-```text
-Camera Ready! Use 'http://172.20.10.10' to connect
-```
-
-### Paso 3: Probar la cámara en navegador
-
-Abrir en el navegador:
-
-```text
-http://172.20.10.10
-```
-
-Para capturar una imagen directa:
-
-```text
-http://172.20.10.10/capture
-```
-
-### Paso 4: Ejecutar el programa en Python
-
-Desde la carpeta del proyecto ejecutar:
-
-```bash
-py analisis_cafe.py
-```
-
-### Paso 5: Visualizar resultados
-
-El programa mostrará una ventana con el proceso completo de análisis y la clasificación final del grano.
-
----
-
-## 14. Consideraciones importantes
-
-- No usar el botón **Start Stream** de la página web mientras se ejecuta el programa en Python, porque puede saturar la ESP32-CAM.
-- Utilizar una iluminación LED uniforme para evitar sombras fuertes.
-- Mantener fija la distancia entre la cámara y la zona de inspección.
-- Usar fondo mate para reducir reflejos.
-- Verificar que la laptop y la ESP32-CAM estén conectadas a la misma red WiFi.
-- Si la imagen se corta o aparece error de conexión, reiniciar la ESP32-CAM y cerrar el navegador.
-
----
-
-## 15. Limitaciones del proyecto
+## 9. Limitaciones del proyecto
 
 - La clasificación se realiza mediante reglas condicionales, no mediante entrenamiento de inteligencia artificial.
 - La precisión depende de la iluminación, enfoque, fondo y resolución de la cámara.
@@ -274,7 +130,7 @@ El programa mostrará una ventana con el proceso completo de análisis y la clas
 
 ---
 
-## 16. Resultados esperados
+## 10. Resultados esperados
 
 Se espera que el sistema pueda:
 
@@ -285,8 +141,3 @@ Se espera que el sistema pueda:
 - Mostrar el proceso completo de análisis en una sola ventana.
 - Servir como prototipo funcional para una solución de clasificación visual de bajo costo.
 
----
-
-## 17. Conclusión
-
-El proyecto demuestra que es posible desarrollar un sistema básico de clasificación de calidad de granos de café utilizando componentes de bajo costo y técnicas de procesamiento digital de imágenes. Mediante la integración de la ESP32-CAM, Python y OpenCV, se logra capturar, analizar y clasificar visualmente los granos según características de forma y color. Aunque el sistema presenta limitaciones relacionadas con la iluminación y los umbrales de clasificación, constituye una base funcional para futuras mejoras, como la incorporación de aprendizaje automático, sensores adicionales o un sistema de selección automática.
