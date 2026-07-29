@@ -1,15 +1,31 @@
-# CLASIFICACION-DE-GRANOS-DE-CAFE
-Este proyecto tiene como finalidad desarrollar un prototipo funcional basado en visión artificial para la inspección y evaluación preliminar de granos de café. El sistema propuesto integra una faja transportadora como mecanismo de desplazamiento, una cámara ESP32-CAM como dispositivo de adquisición de imagen, un entorno de procesamiento desarrollado en Python con la librería OpenCV, y un sistema de control electromecánico mediante Arduino para la activación del motor de la faja.
-Desde el punto de vista técnico, el proyecto se orienta a la implementación de una estación de inspección automatizada, en la cual el grano de café es trasladado hasta una zona de captura controlada.
+# DESCRIPCION GENERAL DEL PROYECTO
+El proyecto presenta el desarrollo de un prototipo para la clasificación básica de la calidad de granos de café mediante técnicas de visión artificial. El sistema integra una ESP32-CAM para la captura de imágenes, Python con OpenCV y NumPy para el procesamiento digital, y un Arduino encargado del control de una faja transportadora mediante un driver TB6612FNG. El algoritmo procesa la imagen a través de etapas como conversión a escala de grises, análisis de histograma, filtrado, detección de bordes, binarización, limpieza morfológica y extracción de contornos. Posteriormente calcula variables como área, perímetro, circularidad, color promedio y desviación de color para clasificar los granos en categorías como bueno, pequeño, partido, quemado, manchado u objeto no válido. El informe también describe la arquitectura del sistema, los componentes utilizados, la integración hardware-software y el avance alcanzado, validando la viabilidad técnica del prototipo para una futura automatización completa del proceso de inspección.
 
-¿Cómo funciona?
+# PROBLEMA QUE SE BUSCA RESOLVER
+Tradicionalmente, la evaluación de la calidad del café se realiza mediante inspección visual por parte de operadores especializados, quienes clasifican los granos considerando características como el tamaño, la forma, el color y la presencia de defectos físicos. Aunque este procedimiento ha demostrado ser efectivo cuando es realizado por personal experimentado, presenta diversas limitaciones relacionadas con la subjetividad del evaluador, la fatiga visual, la variabilidad entre inspectores y el elevado tiempo requerido para analizar grandes volúmenes de producción. Estas limitaciones reducen la repetibilidad del proceso e incrementan los costos operativos, especialmente para pequeños productores que no disponen de equipos industriales automatizados. 
 
-El funcionamiento general se basa en la coordinación entre transporte, captura de imagen y análisis. El grano es llevado por la faja hasta una estación de inspección. En esta estación, la faja debe detenerse para que la imagen no salga borrosa. Luego, Python solicita la imagen al ESP32-CAM, la procesa y clasifica la calidad del grano. Finalmente, Python envía una orden al Arduino para continuar el ciclo.
-La faja transporta el grano hasta la zona de visión.
-La cámara captura una imagen con iluminación controlada.
-El algoritmo calcula variables de forma y color.
-El sistema imprime o muestra la calidad estimada del grano.
-La faja vuelve a avanzar para procesar el siguiente grano.
+# POSIBLE SOLUCION
+En este contexto surge la motivación del presente proyecto, cuyo propósito consiste en desarrollar un prototipo funcional de bajo costo para la clasificación preliminar de granos de café mediante visión artificial. A diferencia de soluciones industriales complejas, la propuesta integra una cámara ESP32-CAM para la adquisición de imágenes, un algoritmo desarrollado en Python utilizando la biblioteca OpenCV para el procesamiento digital y un Arduino encargado del control de una faja transportadora. Esta arquitectura busca demostrar que es posible implementar un sistema de inspección automatizada utilizando componentes económicos y ampliamente disponibles, sin sacrificar la capacidad de identificar características relevantes del grano.
+
+# OBJETIVO
+Por ello, este trabajo busca contribuir al desarrollo de soluciones tecnológicas accesibles para la automatización del control de calidad del café, proporcionando una plataforma escalable que en futuras investigaciones podrá incorporar técnicas de aprendizaje automático o redes neuronales profundas para incrementar la precisión de la clasificación sin modificar significativamente la arquitectura general del sistema.
+
+# LIMITACIONES
+Las principales limitaciones que presenta en este proyecto es que si bien el proceso es automatico, la colocacion de los granos de cafe es de forma manual esto influye en el tiempo que se necesita para seleccionar grandes cantidades de granos de cafe, tambien existe una precaria visualizacion debido a que la camara que se utiliza para capturar la imagen del grano es poco eficiente, pero es un buen prototipo para posibles mejoras y actualizaciones del sistema.
+
+# VERSIONES DE LOS PAQUETES UTILIZADOS
+- ESP32 CAM
+- ARDUINO UNO
+- DRIVER TB6612FNG
+- MOTOR DC 12
+- FAJA TRANSPORTADORA
+
+# SISTEMA OPERATIVO
+- WINDOWS
+
+#ENTORNO DE TRABAJO
+-Visual Studio Code 1.103 (Python) y Arduino IDE 2.x para la programación del Arduino UNO.
+
 
 ## Integrantes:
 
